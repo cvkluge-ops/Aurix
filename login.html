@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Aurix — Acesso ao Cofre Privativo</title>
+  <meta name="description"
+    content="Acesso exclusivo e seguro ao painel de controle financeiro pessoal Aurix. Ambiente privativo e criptografado.">
+  <meta name="theme-color" content="#C6A45A">
+  <link rel="icon" type="image/svg+xml" href="assets/aurix-symbol-dourado.svg">
+
+  <!-- Tipografia de Alto Padrão: Montserrat & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Folha de Estilos Aurix -->
+  <link rel="stylesheet" href="css/style.css?v=3.0">
+</head>
+
+<body class="login-body">
+
+  <!-- Elementos de Atmosfera Luminosa de Fundo -->
+  <div class="login-ambient-orb login-orb-top" aria-hidden="true"></div>
+  <div class="login-ambient-orb login-orb-bottom" aria-hidden="true"></div>
+
+  <!-- Container Principal Centralizado -->
+  <main class="login-layout-wrapper">
+    <div class="login-vault-card">
+
+      <!-- Cabeçalho do Card: Logo 3D Dourado & Identidade do Cofre -->
+      <header class="vault-card-header">
+        <div class="vault-logo-stage" title="Aurix — Cofre Pessoal de Alta Segurança">
+          <!-- Aura Luminosa Respiratória e Anéis Concéntricos -->
+          <div class="vault-logo-glow" aria-hidden="true"></div>
+          <div class="vault-orbit-ring" aria-hidden="true"></div>
+
+          <!-- Logotipo 3D Dourado Oficial -->
+          <img src="assets/aurix_logo_dourado_3d.png" alt="Aurix Logo Dourado 3D" class="vault-logo-img">
+        </div>
+
+        <h1 class="vault-title">AURIX</h1>
+        <p class="vault-subtitle">Cofre Financeiro Privativo</p>
+
+        <!-- Selo de Ambiente Seguro & Privativo -->
+        <div class="vault-security-pill">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+          <span>Ambiente Criptografado & Exclusivo</span>
+        </div>
+
+        <!-- Atalho Criativo de Acesso Rápido para Cezar -->
+        <button type="button" class="quick-access-chip" id="btn-quick-fill"
+          title="Clique para preencher as credenciais de Cezar instantaneamente">
+          <div class="chip-left">
+            <span class="chip-icon">👑</span>
+            <span class="chip-label">Acesso do Proprietário (Cezar)</span>
+          </div>
+          <span class="chip-action">Preencher</span>
+        </button>
+      </header>
+
+      <!-- Banner de Alerta e Notificações do Login (Oculto por Padrão) -->
+      <div id="login-alert" class="login-alert-banner" style="display: none;" role="alert" aria-live="polite">
+        <svg class="alert-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
+        </svg>
+        <span id="login-alert-text">Credenciais inválidas. Verifique seu e-mail e senha.</span>
+      </div>
+
+      <!-- Formulário de Autenticação -->
+      <form id="form-login" class="login-form" novalidate autocomplete="on">
+        
+        <!-- Campo: E-mail de Acesso -->
+        <div class="form-group-login">
+          <label for="login-email" class="login-field-label">
+            <span>E-mail de Acesso</span>
+          </label>
+          <div class="input-icon-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            <input type="email" id="login-email" name="email" class="aurix-input login-input"
+              placeholder="ex: cezar@aurix.com" required autocomplete="email" autofocus>
+          </div>
+        </div>
+
+        <!-- Campo: Senha do Cofre -->
+        <div class="form-group-login">
+          <div class="label-with-action">
+            <label for="login-password" class="login-field-label">
+              <span>Senha de Segurança</span>
+            </label>
+          </div>
+          <div class="input-icon-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            <input type="password" id="login-password" name="password" class="aurix-input login-input input-has-action"
+              placeholder="Digite sua senha de acesso" required autocomplete="current-password">
+            
+            <!-- Botão Interativo: Revelar / Ocultar Senha -->
+            <button type="button" class="btn-toggle-password" id="btn-toggle-password"
+              title="Exibir ou ocultar senha" aria-label="Alternar visibilidade da senha">
+              <!-- Ícone Olho Fechado (Padrão) -->
+              <svg class="icon-eye-closed" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path
+                  d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                <line x1="1" y1="1" x2="23" y2="23" />
+              </svg>
+              <!-- Ícone Olho Aberto -->
+              <svg class="icon-eye-open" style="display:none;" viewBox="0 0 24 24" width="18" height="18" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Opções Auxiliares: Lembrar e Recuperar Chave -->
+        <div class="login-options-row">
+          <label class="custom-checkbox-label" for="remember-me">
+            <input type="checkbox" id="remember-me" checked>
+            <span class="custom-checkbox-mark"></span>
+            <span class="checkbox-text">Manter cofre desbloqueado</span>
+          </label>
+
+          <button type="button" class="btn-text-link" id="btn-forgot-password" title="Ajuda para chave de acesso">
+            Esqueceu a chave?
+          </button>
+        </div>
+
+        <!-- Botão Principal de Submissão / Desbloqueio -->
+        <button type="submit" class="btn-aurix btn-gold-solid btn-login-submit" id="btn-submit-login">
+          <span class="btn-content-idle">
+            <svg class="btn-lock-svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            <span>Desbloquear Cofre Aurix</span>
+          </span>
+          <span class="btn-content-loading" style="display:none;">
+            <span class="golden-spinner"></span>
+            <span>Autenticando Acesso...</span>
+          </span>
+        </button>
+
+      </form>
+
+      <!-- Rodapé do Card: Garantia de Privacidade & Criptografia Local -->
+      <footer class="vault-card-footer">
+        <div class="security-guarantee">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          <span>Dados e lançamentos protegidos no armazenamento local exclusivo do seu dispositivo.</span>
+        </div>
+        <div class="vault-copyright">
+          <span>AURIX Financial Control • Sistema Pessoal Executivo</span>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- Modal de Recuperação de Chave Privada -->
+  <div class="modal-overlay" id="modal-recovery" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-dialog modal-dialog-recovery">
+      <div class="modal-header">
+        <div class="modal-title-with-icon">
+          <div class="modal-icon-badge">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="modal-title">Chave de Acesso do Cofre</h3>
+            <p class="modal-subtitle">Seu cofre opera com chave local privada</p>
+          </div>
+        </div>
+        <button type="button" class="modal-close-btn" id="btn-close-recovery" aria-label="Fechar Modal">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="modal-body recovery-body">
+        <p class="recovery-info-text">
+          O <strong>Aurix</strong> foi desenhado exclusivamente para o seu controle individual. Seus dados financeiros não são enviados a servidores externos públicos, ficando criptografados no seu próprio navegador.
+        </p>
+        <div class="recovery-credential-box">
+          <div class="credential-line">
+            <span class="cred-label">E-mail Padrão:</span>
+            <span class="cred-val">cezar@aurix.com</span>
+          </div>
+          <div class="credential-line">
+            <span class="cred-label">Chave Master:</span>
+            <span class="cred-val">aurix2026 (ou qualquer senha pessoal)</span>
+          </div>
+        </div>
+        <p class="recovery-hint">
+          Você pode usar essas credenciais para entrar ou preencher seus dados habituais.
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-aurix btn-secondary-graphite" id="btn-cancel-recovery">
+          Fechar
+        </button>
+        <button type="button" class="btn-aurix btn-gold-solid" id="btn-apply-recovery">
+          Usar Acesso do Proprietário
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script de Lógica do Login -->
+  <script src="js/auth.js?v=3.0"></script>
+</body>
+
+</html>

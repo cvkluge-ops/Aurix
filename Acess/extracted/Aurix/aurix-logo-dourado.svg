@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">AURIX — logo dourado</title>
+  <desc id="desc">Símbolo geométrico AURIX combinando A, seta ascendente, contorno protetor e obelisco, com wordmark AURIX.</desc>
+  <defs>
+    <linearGradient id="aurixGold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8F6A28"/>
+      <stop offset="38%" stop-color="#C6A45A"/>
+      <stop offset="68%" stop-color="#F2D487"/>
+      <stop offset="100%" stop-color="#B88D3D"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#aurixGold)" stroke-width="28" stroke-linecap="round" stroke-linejoin="round">
+    <!-- architectural protective contour -->
+    <path d="M255 405 V190 L600 72 L945 190 V405"/>
+    <!-- A / rising trajectory -->
+    <path d="M205 655 L510 210 L690 475"/>
+    <path d="M430 490 L600 355 L770 490"/>
+    <!-- integrated upward arrow -->
+    <path d="M600 355 V210 M545 265 L600 210 L655 265"/>
+    <!-- monolithic obelisk -->
+    <path d="M780 645 V155 L830 92 L880 155 V645"/>
+    <path d="M755 645 H905"/>
+    <!-- lower protective arc -->
+    <path d="M385 565 Q600 760 815 565"/>
+  </g>
+  <g fill="#C6A45A" font-family="Montserrat, Avenir Next, Arial, sans-serif" text-anchor="middle">
+    <text x="600" y="825" font-size="92" font-weight="500" letter-spacing="30">AURIX</text>
+  </g>
+</svg>

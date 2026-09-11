@@ -1,0 +1,266 @@
+[
+  {
+    "id": "tx-1",
+    "description": "Aluguel Apartamento",
+    "amount": 2850,
+    "categoryId": "aluguel",
+    "date": "2026-09-05",
+    "paymentMethod": "Transferência Bancária"
+  },
+  {
+    "id": "tx-2",
+    "description": "Supermercado Mensal",
+    "amount": 1240.8,
+    "categoryId": "mercado",
+    "date": "2026-09-03",
+    "paymentMethod": "Cartão de Crédito"
+  },
+  {
+    "id": "tx-3",
+    "description": "Abastecimento Veículo",
+    "amount": 320.5,
+    "categoryId": "combustivel",
+    "date": "2026-09-07",
+    "paymentMethod": "Cartão de Débito"
+  },
+  {
+    "id": "tx-4",
+    "description": "Conta de Energia Elétrica",
+    "amount": 295.4,
+    "categoryId": "luz",
+    "date": "2026-09-04",
+    "paymentMethod": "Boleto"
+  },
+  {
+    "id": "tx-5",
+    "description": "Tarifa de Água e Saneamento",
+    "amount": 118.9,
+    "categoryId": "agua",
+    "date": "2026-09-04",
+    "paymentMethod": "Débito Automático"
+  },
+  {
+    "id": "tx-6",
+    "description": "Internet Fibra Ótica Alta Velocidade",
+    "amount": 169.9,
+    "categoryId": "internet",
+    "date": "2026-09-02",
+    "paymentMethod": "Cartão de Crédito"
+  },
+  {
+    "id": "tx-7",
+    "description": "Jantar & Restaurantes",
+    "amount": 480,
+    "categoryId": "alimentos",
+    "date": "2026-09-06",
+    "paymentMethod": "Cartão de Crédito"
+  },
+  {
+    "id": "tx-8",
+    "description": "Curso de Especialização & Livros",
+    "amount": 390,
+    "categoryId": "educacao",
+    "date": "2026-09-01",
+    "paymentMethod": "Cartão de Crédito"
+  },
+  {
+    "id": "tx-9",
+    "description": "Farmácia e Cuidados de Saúde",
+    "amount": 195.3,
+    "categoryId": "saude",
+    "date": "2026-09-08",
+    "paymentMethod": "Cartão de Débito"
+  },
+  {
+    "id": "tx-10",
+    "description": "Compras Online Acessórios Tech",
+    "amount": 345.9,
+    "categoryId": "compras-internet",
+    "date": "2026-09-07",
+    "paymentMethod": "Cartão de Crédito"
+  },
+  {
+    "id": "tx-11",
+    "description": "Transporte Corporativo & Mobilidade",
+    "amount": 142.5,
+    "categoryId": "transporte",
+    "date": "2026-09-08",
+    "paymentMethod": "Cartão de Crédito"
+  },
+  {
+    "id": "tx-12",
+    "description": "Cinema & Lazer Cultural",
+    "amount": 185,
+    "categoryId": "lazer",
+    "date": "2026-09-05",
+    "paymentMethod": "Cartão de Crédito"
+  },
+  {
+    "id": "tx-13",
+    "description": "Assessoria Contábil & Compromissos",
+    "amount": 450,
+    "categoryId": "compromissos",
+    "date": "2026-09-02",
+    "paymentMethod": "Pix"
+  },
+  {
+    "id": "tx-14",
+    "description": "Manutenção & Serviços Residenciais",
+    "amount": 220,
+    "categoryId": "servicos",
+    "date": "2026-09-06",
+    "paymentMethod": "Pix"
+  },
+  {
+    "id": "tx-15",
+    "description": "Reserva de Passagens & Viagem",
+    "amount": 650,
+    "categoryId": "viagem",
+    "date": "2026-09-03",
+    "paymentMethod": "Cartão de Crédito"
+  },
+  {
+    "id": "tx-aug-1",
+    "description": "Aluguel Apartamento",
+    "amount": 2850,
+    "categoryId": "aluguel",
+    "date": "2026-08-05",
+    "paymentMethod": "Transferência Bancária"
+  },
+  {
+    "id": "tx-aug-2",
+    "description": "Supermercado Mensal Pão de Açúcar",
+    "amount": 1450.2,
+    "categoryId": "mercado",
+    "date": "2026-08-10",
+    "paymentMethod": "Cartão de Crédito"
+  },
+  {
+    "id": "tx-aug-3",
+    "description": "Abastecimento Veículo (2x)",
+    "amount": 540,
+    "categoryId": "combustivel",
+    "date": "2026-08-18",
+    "paymentMethod": "Cartão de Débito"
+  },
+  {
+    "id": "tx-aug-4",
+    "description": "Energia Elétrica Enel",
+    "amount": 340.8,
+    "categoryId": "luz",
+    "date": "2026-08-06",
+    "paymentMethod": "Boleto"
+  },
+  {
+    "id": "tx-aug-5",
+    "description": "Sabesp Água",
+    "amount": 125.4,
+    "categoryId": "agua",
+    "date": "2026-08-06",
+    "paymentMethod": "Débito Automático"
+  },
+  {
+    "id": "tx-aug-6",
+    "description": "Internet Fibra Ótica",
+    "amount": 169.9,
+    "categoryId": "internet",
+    "date": "2026-08-03",
+    "paymentMethod": "Cartão de Crédito"
+  },
+  {
+    "id": "tx-aug-7",
+    "description": "Restaurantes & Cafés",
+    "amount": 780.5,
+    "categoryId": "alimentos",
+    "date": "2026-08-22",
+    "paymentMethod": "Cartão de Crédito"
+  },
+  {
+    "id": "tx-aug-8",
+    "description": "Revisão Mecânica do Carro",
+    "amount": 1250,
+    "categoryId": "servicos",
+    "date": "2026-08-14",
+    "paymentMethod": "Cartão de Crédito"
+  },
+  {
+    "id": "tx-aug-9",
+    "description": "Consulta Médica e Exames",
+    "amount": 620,
+    "categoryId": "saude",
+    "date": "2026-08-19",
+    "paymentMethod": "Pix"
+  },
+  {
+    "id": "tx-aug-10",
+    "description": "Compras Eletrônicos Mercado Livre",
+    "amount": 890,
+    "categoryId": "compras-internet",
+    "date": "2026-08-12",
+    "paymentMethod": "Cartão de Crédito"
+  },
+  {
+    "id": "tx-aug-11",
+    "description": "Shows & Eventos Culturais",
+    "amount": 420,
+    "categoryId": "lazer",
+    "date": "2026-08-26",
+    "paymentMethod": "Cartão de Crédito"
+  },
+  {
+    "id": "tx-jul-1",
+    "description": "Aluguel Apartamento",
+    "amount": 2850,
+    "categoryId": "aluguel",
+    "date": "2026-07-05",
+    "paymentMethod": "Transferência Bancária"
+  },
+  {
+    "id": "tx-jul-2",
+    "description": "Supermercado Mensal",
+    "amount": 1120.4,
+    "categoryId": "mercado",
+    "date": "2026-07-08",
+    "paymentMethod": "Cartão de Crédito"
+  },
+  {
+    "id": "tx-jul-3",
+    "description": "Pacote Viagem Férias de Julho",
+    "amount": 3450,
+    "categoryId": "viagem",
+    "date": "2026-07-15",
+    "paymentMethod": "Cartão de Crédito"
+  },
+  {
+    "id": "tx-jul-4",
+    "description": "Energia Elétrica",
+    "amount": 280.1,
+    "categoryId": "luz",
+    "date": "2026-07-04",
+    "paymentMethod": "Boleto"
+  },
+  {
+    "id": "tx-jul-5",
+    "description": "Gastos com Educação & Cursos",
+    "amount": 550,
+    "categoryId": "educacao",
+    "date": "2026-07-20",
+    "paymentMethod": "Pix"
+  },
+  {
+    "id": "tx-jul-6",
+    "description": "Internet Fibra",
+    "amount": 169.9,
+    "categoryId": "internet",
+    "date": "2026-07-02",
+    "paymentMethod": "Cartão de Crédito"
+  },
+  {
+    "id": "tx-jul-7",
+    "description": "Jantares & Gastronomia",
+    "amount": 630,
+    "categoryId": "alimentos",
+    "date": "2026-07-25",
+    "paymentMethod": "Cartão de Crédito"
+  }
+]
