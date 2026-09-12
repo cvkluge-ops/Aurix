@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const pool = require('../db');
 const { requireAuth, COOKIE_NAME } = require('../middleware/auth');
+const { sendRegistrationConfirmationEmail } = require('../lib/mailer');
 
 const router = express.Router();
 
@@ -51,8 +52,14 @@ router.post('/register', async (req, res) => {
       [normalizedEmail, passwordHash, String(name).trim()]
     );
 
+    try {
+      await sendRegistrationConfirmationEmail({ to: normalizedEmail, name: String(name).trim() });
+    } catch (emailErr) {
+      console.error('Falha ao enviar e-mail de confirmação de cadastro:', emailErr.message);
+    }
+
     res.status(201).json({
-      message: 'Cadastro enviado com sucesso! Aguarde a aprovação de um administrador para acessar o cofre.'
+      message: 'Cadastro enviado com sucesso! Verifique seu e-mail e aguarde a aprovação de um administrador.'
     });
   } catch (err) {
     console.error('Erro no cadastro:', err);

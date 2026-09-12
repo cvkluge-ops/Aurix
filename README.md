@@ -26,7 +26,11 @@ App de controle de gastos pessoais com backend em Node.js/Express e banco Postgr
    ```bash
    npm run seed
    ```
-5. Suba o servidor:
+5. (Opcional) Para o e-mail de confirmação de cadastro funcionar, gere uma **Senha de App** do Gmail:
+   - Ative a verificação em duas etapas na sua conta Google, se ainda não tiver.
+   - Acesse [myaccount.google.com/apppasswords](https://myaccount.google.com/apppasswords), gere uma senha para "Mail" e cole em `GMAIL_APP_PASSWORD` no `.env` (junto com `GMAIL_USER`).
+   - Sem essa variável configurada, o cadastro continua funcionando normalmente — só o e-mail não é enviado (fica registrado um aviso no log).
+6. Suba o servidor:
    ```bash
    npm start
    ```
@@ -47,6 +51,8 @@ App de controle de gastos pessoais com backend em Node.js/Express e banco Postgr
    - `OWNER_PASSWORD`
    - `OWNER_NAME`
    - `NODE_ENV` = `production`
+   - `APP_URL` = `https://SEU-SERVICO.onrender.com` (a URL pública do próprio serviço, usada no link do e-mail de cadastro)
+   - `GMAIL_USER` e `GMAIL_APP_PASSWORD` (opcionais — sem elas o e-mail de confirmação de cadastro não é enviado)
 5. Deploy. Depois do primeiro deploy bem-sucedido, rode a migração e o seed **uma vez** contra o banco de produção (pode ser da sua máquina local, apontando o `.env` para o mesmo `DATABASE_URL` do Render — é o mesmo banco Supabase):
    ```bash
    npm run migrate
