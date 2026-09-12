@@ -6,6 +6,9 @@ create table if not exists users (
   created_at timestamptz not null default now()
 );
 
+alter table users add column if not exists role text not null default 'user';
+alter table users add column if not exists status text not null default 'pending';
+
 create table if not exists expenses (
   id serial primary key,
   user_id integer not null references users(id) on delete cascade,

@@ -517,11 +517,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const displayUserName = document.getElementById('display-user-name');
     const displayUserAvatar = document.getElementById('display-user-avatar');
     const menuUserName = document.getElementById('menu-user-name');
+    const menuAdminPanel = document.getElementById('menu-admin-panel');
 
     if (user && user.name) {
       if (displayUserName) displayUserName.textContent = user.name;
       if (displayUserAvatar) displayUserAvatar.textContent = user.name.charAt(0).toUpperCase();
       if (menuUserName) menuUserName.textContent = user.name;
+    }
+
+    if (menuAdminPanel) {
+      menuAdminPanel.style.display = (user && user.role === 'admin') ? 'flex' : 'none';
     }
 
     // Alternar visibilidade do menu suspenso

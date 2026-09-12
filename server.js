@@ -5,6 +5,7 @@ const path = require('path');
 
 const authRoutes = require('./routes/auth');
 const expensesRoutes = require('./routes/expenses');
+const adminRoutes = require('./routes/admin');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,6 +15,7 @@ app.use(cookieParser());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/expenses', expensesRoutes);
+app.use('/api/admin', adminRoutes);
 
 app.use(express.static(__dirname));
 

@@ -14,9 +14,13 @@ async function seed() {
   const passwordHash = await bcrypt.hash(OWNER_PASSWORD, 10);
 
   const { rows } = await pool.query(
-    `insert into users (email, password_hash, name)
-     values ($1, $2, $3)
-     on conflict (email) do update set password_hash = excluded.password_hash, name = excluded.name
+    `insert into users (email, password_hash, name, role, status)
+     values ($1, $2, $3, 'admin', 'approved')
+     on conflict (email) do update set
+       password_hash = excluded.password_hash,
+       name = excluded.name,
+       role = 'admin',
+       status = 'approved'
      returning id`,
     [OWNER_EMAIL.toLowerCase(), passwordHash, OWNER_NAME || 'Cezar']
   );

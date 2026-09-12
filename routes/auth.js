@@ -7,6 +7,7 @@ const { requireAuth, COOKIE_NAME } = require('../middleware/auth');
 const router = express.Router();
 
 const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 * 1000;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function cookieOptions(rememberMe) {
   const options = {
@@ -21,6 +22,44 @@ function cookieOptions(rememberMe) {
   return options;
 }
 
+router.post('/register', async (req, res) => {
+  const { name, email, password } = req.body || {};
+
+  if (!name || !String(name).trim()) {
+    return res.status(400).json({ error: 'Informe seu nome.' });
+  }
+  if (!email || !EMAIL_RE.test(String(email).trim())) {
+    return res.status(400).json({ error: 'Informe um e-mail válido.' });
+  }
+  if (!password || String(password).length < 6) {
+    return res.status(400).json({ error: 'A senha precisa ter pelo menos 6 caracteres.' });
+  }
+
+  const normalizedEmail = String(email).toLowerCase().trim();
+
+  try {
+    const { rows: existing } = await pool.query('select id from users where email = $1', [normalizedEmail]);
+    if (existing[0]) {
+      return res.status(409).json({ error: 'Já existe um cadastro com este e-mail.' });
+    }
+
+    const passwordHash = await bcrypt.hash(password, 10);
+
+    await pool.query(
+      `insert into users (email, password_hash, name, role, status)
+       values ($1, $2, $3, 'user', 'pending')`,
+      [normalizedEmail, passwordHash, String(name).trim()]
+    );
+
+    res.status(201).json({
+      message: 'Cadastro enviado com sucesso! Aguarde a aprovação de um administrador para acessar o cofre.'
+    });
+  } catch (err) {
+    console.error('Erro no cadastro:', err);
+    res.status(500).json({ error: 'Erro interno ao tentar cadastrar.' });
+  }
+});
+
 router.post('/login', async (req, res) => {
   const { email, password, rememberMe } = req.body || {};
 
@@ -30,7 +69,7 @@ router.post('/login', async (req, res) => {
 
   try {
     const { rows } = await pool.query(
-      'select id, email, password_hash, name from users where email = $1',
+      'select id, email, password_hash, name, role, status from users where email = $1',
       [String(email).toLowerCase().trim()]
     );
 
@@ -44,12 +83,19 @@ router.post('/login', async (req, res) => {
       return res.status(401).json({ error: 'E-mail ou senha inválidos.' });
     }
 
+    if (user.status === 'pending') {
+      return res.status(403).json({ error: 'Seu cadastro ainda está aguardando aprovação de um administrador.' });
+    }
+    if (user.status !== 'approved') {
+      return res.status(403).json({ error: 'Seu cadastro não foi aprovado para acessar o cofre.' });
+    }
+
     const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
       expiresIn: rememberMe ? '30d' : '1d'
     });
 
     res.cookie(COOKIE_NAME, token, cookieOptions(rememberMe));
-    res.json({ user: { name: user.name, email: user.email } });
+    res.json({ user: { name: user.name, email: user.email, role: user.role } });
   } catch (err) {
     console.error('Erro no login:', err);
     res.status(500).json({ error: 'Erro interno ao tentar autenticar.' });
@@ -63,7 +109,7 @@ router.post('/logout', (req, res) => {
 
 router.get('/me', requireAuth, async (req, res) => {
   try {
-    const { rows } = await pool.query('select email, name from users where id = $1', [req.userId]);
+    const { rows } = await pool.query('select email, name, role from users where id = $1', [req.userId]);
     const user = rows[0];
     if (!user) {
       return res.status(401).json({ error: 'Usuário não encontrado.' });

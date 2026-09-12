@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Aurix — Criar Conta</title>
+  <meta name="description"
+    content="Solicite acesso ao cofre financeiro pessoal Aurix. Seu cadastro será revisado por um administrador.">
+  <meta name="theme-color" content="#C6A45A">
+  <link rel="icon" type="image/svg+xml" href="assets/aurix-symbol-dourado.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css?v=3.0">
+</head>
+
+<body class="login-body">
+
+  <div class="login-ambient-orb login-orb-top" aria-hidden="true"></div>
+  <div class="login-ambient-orb login-orb-bottom" aria-hidden="true"></div>
+
+  <main class="login-layout-wrapper">
+    <div class="login-vault-card">
+
+      <header class="vault-card-header">
+        <div class="vault-logo-stage" title="Aurix — Cofre Pessoal de Alta Segurança">
+          <div class="vault-logo-glow" aria-hidden="true"></div>
+          <div class="vault-orbit-ring" aria-hidden="true"></div>
+          <img src="assets/aurix_logo_dourado_3d.png" alt="Aurix Logo Dourado 3D" class="vault-logo-img">
+        </div>
+
+        <h1 class="vault-title">AURIX</h1>
+        <p class="vault-subtitle">Solicitar Acesso ao Cofre</p>
+
+        <div class="vault-security-pill">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+          <span>Cadastro sujeito à aprovação</span>
+        </div>
+      </header>
+
+      <!-- Banner de Alerta -->
+      <div id="register-alert" class="login-alert-banner" style="display: none;" role="alert" aria-live="polite">
+        <svg class="alert-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
+        </svg>
+        <span id="register-alert-text">Não foi possível concluir o cadastro.</span>
+      </div>
+
+      <!-- Banner de Sucesso (Oculto por Padrão) -->
+      <div id="register-success" class="login-alert-banner login-alert-success" style="display: none;" role="status" aria-live="polite">
+        <svg class="alert-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+        <span id="register-success-text">Cadastro enviado! Aguarde a aprovação de um administrador.</span>
+      </div>
+
+      <!-- Formulário de Cadastro -->
+      <form id="form-register" class="login-form" novalidate autocomplete="on">
+
+        <div class="form-group-login">
+          <label for="register-name" class="login-field-label">
+            <span>Nome Completo</span>
+          </label>
+          <div class="input-icon-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+              <circle cx="12" cy="7" r="4" />
+            </svg>
+            <input type="text" id="register-name" name="name" class="aurix-input login-input"
+              placeholder="Seu nome completo" required autocomplete="name" autofocus>
+          </div>
+        </div>
+
+        <div class="form-group-login">
+          <label for="register-email" class="login-field-label">
+            <span>E-mail de Acesso</span>
+          </label>
+          <div class="input-icon-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            <input type="email" id="register-email" name="email" class="aurix-input login-input"
+              placeholder="seu@email.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-group-login">
+          <label for="register-password" class="login-field-label">
+            <span>Senha</span>
+          </label>
+          <div class="input-icon-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            <input type="password" id="register-password" name="password" class="aurix-input login-input"
+              placeholder="Mínimo de 6 caracteres" required autocomplete="new-password" minlength="6">
+          </div>
+        </div>
+
+        <div class="form-group-login">
+          <label for="register-password-confirm" class="login-field-label">
+            <span>Confirmar Senha</span>
+          </label>
+          <div class="input-icon-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            <input type="password" id="register-password-confirm" name="passwordConfirm" class="aurix-input login-input"
+              placeholder="Digite a senha novamente" required autocomplete="new-password" minlength="6">
+          </div>
+        </div>
+
+        <button type="submit" class="btn-aurix btn-gold-solid btn-login-submit" id="btn-submit-register">
+          <span class="btn-content-idle">
+            <span>Solicitar Acesso</span>
+          </span>
+          <span class="btn-content-loading" style="display:none;">
+            <span class="golden-spinner"></span>
+            <span>Enviando Cadastro...</span>
+          </span>
+        </button>
+
+      </form>
+
+      <p class="register-link-row">
+        Já tem uma conta? <a href="login.html" class="btn-text-link">Fazer login</a>
+      </p>
+
+      <footer class="vault-card-footer">
+        <div class="security-guarantee">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          <span>Seu acesso só é liberado depois que um administrador aprovar o cadastro.</span>
+        </div>
+        <div class="vault-copyright">
+          <span>AURIX Financial Control • Sistema Pessoal Executivo</span>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <script src="js/register.js?v=1.0"></script>
+</body>
+
+</html>
