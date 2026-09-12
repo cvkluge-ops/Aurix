@@ -20,6 +20,12 @@
   const successBanner = document.getElementById('register-success');
   const successText = document.getElementById('register-success-text');
 
+  const btnSuggestPassword = document.getElementById('btn-suggest-password');
+  const passwordSuggestionBox = document.getElementById('password-suggestion-box');
+  const suggestedPasswordText = document.getElementById('suggested-password-text');
+  const btnCopyPassword = document.getElementById('btn-copy-password');
+  const btnUsePassword = document.getElementById('btn-use-password');
+
   function showAlert(msg) {
     if (!alertBanner || !alertText) return;
     hideSuccess();
@@ -51,6 +57,78 @@
     btnSubmit.disabled = isLoading;
     if (btnContentIdle) btnContentIdle.style.display = isLoading ? 'none' : 'inline-flex';
     if (btnContentLoading) btnContentLoading.style.display = isLoading ? 'inline-flex' : 'none';
+  }
+
+  /**
+   * Gera uma senha forte aleatória (14 caracteres, sem ambíguos como 0/O/1/l/I)
+   */
+  function generateStrongPassword(length) {
+    const charset = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789!@#$%&*';
+    const randomValues = new Uint32Array(length);
+    (window.crypto || window.msCrypto).getRandomValues(randomValues);
+    let password = '';
+    for (let i = 0; i < length; i++) {
+      password += charset[randomValues[i] % charset.length];
+    }
+    return password;
+  }
+
+  async function copyToClipboard(text) {
+    if (navigator.clipboard && window.isSecureContext) {
+      try {
+        await navigator.clipboard.writeText(text);
+        return;
+      } catch (err) {
+        // Alguns navegadores expõem a Clipboard API mas bloqueiam a permissão —
+        // cai para o método manual abaixo em vez de desistir.
+      }
+    }
+
+    const tempInput = document.createElement('textarea');
+    tempInput.value = text;
+    tempInput.style.position = 'fixed';
+    tempInput.style.opacity = '0';
+    document.body.appendChild(tempInput);
+    tempInput.focus();
+    tempInput.select();
+    const copied = document.execCommand('copy');
+    document.body.removeChild(tempInput);
+
+    if (!copied) {
+      throw new Error('Não foi possível copiar automaticamente.');
+    }
+  }
+
+  if (btnSuggestPassword) {
+    btnSuggestPassword.addEventListener('click', function () {
+      const newPassword = generateStrongPassword(14);
+      if (suggestedPasswordText) suggestedPasswordText.textContent = newPassword;
+      if (passwordSuggestionBox) passwordSuggestionBox.style.display = 'flex';
+    });
+  }
+
+  if (btnCopyPassword) {
+    btnCopyPassword.addEventListener('click', async function () {
+      const value = suggestedPasswordText ? suggestedPasswordText.textContent : '';
+      if (!value || value === '—') return;
+      try {
+        await copyToClipboard(value);
+        const original = btnCopyPassword.textContent;
+        btnCopyPassword.textContent = 'Copiado!';
+        setTimeout(() => { btnCopyPassword.textContent = original; }, 1800);
+      } catch (err) {
+        showAlert('Não foi possível copiar automaticamente. Selecione e copie a senha manualmente.');
+      }
+    });
+  }
+
+  if (btnUsePassword) {
+    btnUsePassword.addEventListener('click', function () {
+      const value = suggestedPasswordText ? suggestedPasswordText.textContent : '';
+      if (!value || value === '—') return;
+      if (inputPassword) inputPassword.value = value;
+      if (inputPasswordConfirm) inputPasswordConfirm.value = value;
+    });
   }
 
   if (form) {

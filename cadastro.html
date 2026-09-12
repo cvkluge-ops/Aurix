@@ -107,6 +107,21 @@
             <input type="password" id="register-password" name="password" class="aurix-input login-input"
               placeholder="Mínimo de 6 caracteres" required autocomplete="new-password" minlength="6">
           </div>
+          <button type="button" class="btn-text-link password-suggest-link" id="btn-suggest-password">
+            Sugerir senha forte
+          </button>
+        </div>
+
+        <!-- Caixa de Senha Sugerida (Oculta por Padrão) -->
+        <div class="recovery-credential-box" id="password-suggestion-box" style="display: none;">
+          <div class="credential-line">
+            <span class="cred-label">Senha sugerida:</span>
+            <span class="cred-val" id="suggested-password-text">—</span>
+          </div>
+          <div class="password-suggestion-actions">
+            <button type="button" class="btn-text-link" id="btn-copy-password">Copiar</button>
+            <button type="button" class="btn-text-link" id="btn-use-password">Usar esta senha</button>
+          </div>
         </div>
 
         <div class="form-group-login">

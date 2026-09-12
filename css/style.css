@@ -2802,6 +2802,17 @@ body::before {
 }
 
 /* --- Rodapé do Card do Cofre --- */
+.password-suggest-link {
+  align-self: flex-end;
+  margin-top: 2px;
+}
+
+.password-suggestion-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
 .register-link-row {
   margin-top: 18px;
   text-align: center;
