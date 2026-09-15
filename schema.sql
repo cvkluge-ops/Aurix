@@ -8,6 +8,8 @@ create table if not exists users (
 
 alter table users add column if not exists role text not null default 'user';
 alter table users add column if not exists status text not null default 'pending';
+alter table users add column if not exists reset_token_hash text;
+alter table users add column if not exists reset_token_expires timestamptz;
 
 create table if not exists expenses (
   id serial primary key,

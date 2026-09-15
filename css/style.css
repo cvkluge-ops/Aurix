@@ -2937,6 +2937,38 @@ body::before {
   }
 }
 
+/* --- Página Minha Conta --- */
+.account-form-section {
+  padding-bottom: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.account-form-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 32px;
+  width: 100%;
+  max-width: 440px;
+}
+
+.account-form-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: #FFFFFF;
+  margin-bottom: 4px;
+}
+
+.account-form-hint {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+}
+
 /* --- Painel de Administração --- */
 .admin-users-list {
   display: flex;

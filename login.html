@@ -136,9 +136,9 @@
             <span class="checkbox-text">Manter cofre desbloqueado</span>
           </label>
 
-          <button type="button" class="btn-text-link" id="btn-forgot-password" title="Ajuda para chave de acesso">
+          <a href="esqueci-senha.html" class="btn-text-link" title="Redefinir senha de acesso">
             Esqueceu a chave?
-          </button>
+          </a>
         </div>
 
         <!-- Botão Principal de Submissão / Desbloqueio -->
@@ -179,47 +179,6 @@
 
     </div>
   </main>
-
-  <!-- Modal de Recuperação de Chave Privada -->
-  <div class="modal-overlay" id="modal-recovery" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="modal-dialog modal-dialog-recovery">
-      <div class="modal-header">
-        <div class="modal-title-with-icon">
-          <div class="modal-icon-badge">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-            </svg>
-          </div>
-          <div>
-            <h3 class="modal-title">Chave de Acesso do Cofre</h3>
-            <p class="modal-subtitle">Seu cofre opera com chave local privada</p>
-          </div>
-        </div>
-        <button type="button" class="modal-close-btn" id="btn-close-recovery" aria-label="Fechar Modal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </button>
-      </div>
-
-      <div class="modal-body recovery-body">
-        <p class="recovery-info-text">
-          Se você esqueceu sua senha ou seu cadastro ainda não foi aprovado, entre em contato com o administrador do cofre para redefinir seu acesso.
-        </p>
-        <p class="recovery-hint">
-          Ainda não tem conta? <a href="cadastro.html" class="btn-text-link">Cadastre-se aqui</a>.
-        </p>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn-aurix btn-gold-solid" id="btn-cancel-recovery">
-          Entendi
-        </button>
-      </div>
-    </div>
-  </div>
 
   <!-- Script de Lógica do Login -->
   <script src="js/auth.js?v=3.0"></script>

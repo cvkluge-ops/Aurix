@@ -23,13 +23,6 @@
   const loginAlert = document.getElementById('login-alert');
   const loginAlertText = document.getElementById('login-alert-text');
 
-  // Modal de Recuperação
-  const btnForgotPassword = document.getElementById('btn-forgot-password');
-  const modalRecovery = document.getElementById('modal-recovery');
-  const btnCloseRecovery = document.getElementById('btn-close-recovery');
-  const btnCancelRecovery = document.getElementById('btn-cancel-recovery');
-  const btnApplyRecovery = document.getElementById('btn-apply-recovery');
-
   // E-mail do proprietário (Cezar), só para atalho de preenchimento — a senha real vive no banco
   const OWNER_EMAIL_HINT = 'cezar@aurix.com';
 
@@ -40,7 +33,6 @@
     setupPasswordToggle();
     setupQuickAccess();
     setupFormSubmission();
-    setupRecoveryModal();
     redirectIfAlreadyAuthenticated();
   }
 
@@ -186,35 +178,6 @@
   function hideAlert() {
     if (!loginAlert) return;
     loginAlert.style.display = 'none';
-  }
-
-  /**
-   * Modal de ajuda/recuperação
-   */
-  function setupRecoveryModal() {
-    if (!btnForgotPassword || !modalRecovery) return;
-
-    btnForgotPassword.addEventListener('click', function () {
-      modalRecovery.classList.add('active');
-    });
-
-    const closeHandler = function () {
-      modalRecovery.classList.remove('active');
-    };
-
-    if (btnCloseRecovery) btnCloseRecovery.addEventListener('click', closeHandler);
-    if (btnCancelRecovery) btnCancelRecovery.addEventListener('click', closeHandler);
-
-    modalRecovery.addEventListener('click', function (e) {
-      if (e.target === modalRecovery) closeHandler();
-    });
-
-    if (btnApplyRecovery) {
-      btnApplyRecovery.addEventListener('click', function () {
-        if (inputEmail) inputEmail.value = OWNER_EMAIL_HINT;
-        closeHandler();
-      });
-    }
   }
 
   /**

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Aurix — Redefinir Senha</title>
+  <meta name="description" content="Defina uma nova senha de acesso ao cofre Aurix.">
+  <meta name="theme-color" content="#C6A45A">
+  <link rel="icon" type="image/svg+xml" href="assets/aurix-symbol-dourado.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css?v=3.0">
+</head>
+
+<body class="login-body">
+
+  <div class="login-ambient-orb login-orb-top" aria-hidden="true"></div>
+  <div class="login-ambient-orb login-orb-bottom" aria-hidden="true"></div>
+
+  <main class="login-layout-wrapper">
+    <div class="login-vault-card">
+
+      <header class="vault-card-header">
+        <div class="vault-logo-stage" title="Aurix — Cofre Pessoal de Alta Segurança">
+          <div class="vault-logo-glow" aria-hidden="true"></div>
+          <div class="vault-orbit-ring" aria-hidden="true"></div>
+          <img src="assets/aurix_logo_dourado_3d.png" alt="Aurix Logo Dourado 3D" class="vault-logo-img">
+        </div>
+
+        <h1 class="vault-title">AURIX</h1>
+        <p class="vault-subtitle">Definir Nova Senha</p>
+
+        <div class="vault-security-pill">
+          <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg>
+          <span>Link de redefinição válido por 1 hora</span>
+        </div>
+      </header>
+
+      <div id="reset-alert" class="login-alert-banner" style="display: none;" role="alert" aria-live="polite">
+        <svg class="alert-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="8" x2="12" y2="12" />
+          <line x1="12" y1="16" x2="12.01" y2="16" />
+        </svg>
+        <span id="reset-alert-text">Link inválido ou expirado.</span>
+      </div>
+
+      <div id="reset-success" class="login-alert-banner login-alert-success" style="display: none;" role="status" aria-live="polite">
+        <svg class="alert-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+        <span id="reset-success-text">Senha redefinida com sucesso!</span>
+      </div>
+
+      <form id="form-reset" class="login-form" novalidate autocomplete="on">
+        <div class="form-group-login">
+          <label for="reset-password" class="login-field-label">
+            <span>Nova Senha</span>
+          </label>
+          <div class="input-icon-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            <input type="password" id="reset-password" name="password" class="aurix-input login-input"
+              placeholder="Mínimo de 6 caracteres" required autocomplete="new-password" minlength="6" autofocus>
+          </div>
+          <button type="button" class="btn-text-link password-suggest-link" id="btn-suggest-password">
+            Sugerir senha forte
+          </button>
+        </div>
+
+        <div class="recovery-credential-box" id="password-suggestion-box" style="display: none;">
+          <div class="credential-line">
+            <span class="cred-label">Senha sugerida:</span>
+            <span class="cred-val" id="suggested-password-text">—</span>
+          </div>
+          <div class="password-suggestion-actions">
+            <button type="button" class="btn-text-link" id="btn-copy-password">Copiar</button>
+            <button type="button" class="btn-text-link" id="btn-use-password">Usar esta senha</button>
+          </div>
+        </div>
+
+        <div class="form-group-login">
+          <label for="reset-password-confirm" class="login-field-label">
+            <span>Confirmar Nova Senha</span>
+          </label>
+          <div class="input-icon-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg>
+            <input type="password" id="reset-password-confirm" name="passwordConfirm" class="aurix-input login-input"
+              placeholder="Digite a nova senha novamente" required autocomplete="new-password" minlength="6">
+          </div>
+        </div>
+
+        <button type="submit" class="btn-aurix btn-gold-solid btn-login-submit" id="btn-submit-reset">
+          <span class="btn-content-idle">
+            <span>Redefinir Senha</span>
+          </span>
+          <span class="btn-content-loading" style="display:none;">
+            <span class="golden-spinner"></span>
+            <span>Redefinindo...</span>
+          </span>
+        </button>
+      </form>
+
+      <p class="register-link-row">
+        Lembrou a senha? <a href="login.html" class="btn-text-link">Fazer login</a>
+      </p>
+
+      <footer class="vault-card-footer">
+        <div class="vault-copyright">
+          <span>AURIX Financial Control • Sistema Pessoal Executivo</span>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <script src="js/reset-password.js?v=1.0"></script>
+</body>
+
+</html>
